@@ -1,0 +1,106 @@
+@startuml
+
+class "automobil" as a{
+  ime modela
+  osnovna cijena
+}
+
+
+class "narudzba" as n{
+  sifra narudzbe
+  ukupna cijena
+  rezervacija
+}
+
+class "stavka narudzbe" as sn{
+  kolicina
+}
+
+class "motor" as m{
+  kod motora
+  snaga u kw
+  zakretni momenat
+  broj ventila po cilindru
+  gorivo
+  cijena
+}
+
+class "prijenos" as p{
+  kod mjenjaca
+  tip
+  broj brzina
+  pogon
+  cijena
+}
+
+class "interijer" as i{
+  materijal
+  boja
+  cijena
+}
+
+class "sjedala" as s{
+  materijal
+  grijanje
+  masaza
+  cijena
+}
+
+class "volan" as v{
+  materijal
+  multifunkcijski
+  grijanje
+  cijena
+}
+
+class "krov" as kr{
+  tip
+  cijena
+}
+
+class "centralna konzola" as ck{
+  glavni materijal
+  materijal detalja
+  cijena
+}
+
+class "radio" as r{
+  tip
+  velicina ekrana
+  cijena
+}
+
+class "klimatizacija" as kl{
+  tip
+  broj zona
+  cijena
+}
+
+class "boja" as b{
+  ime boje
+  tip
+  cijena
+}
+
+class "kupac" as k{
+  ime
+  prezime
+  oib
+}
+
+
+a o-- m
+b -> a
+m o-- p
+a o- i
+i o-- s
+i o-- v
+i o-- kr
+i o-- ck
+ck o-- r
+ck o-- kl
+n *- "1..*" sn
+sn o-- a
+k "1" --> "*" n
+
+@enduml
