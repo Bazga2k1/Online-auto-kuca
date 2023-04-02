@@ -21,8 +21,23 @@ class "motor" as m{
   snaga u kw
   zakretni momenat
   broj ventila po cilindru
+  emisije co2
+  potrosnja
   gorivo
   cijena
+}
+
+class "ovijes" as sus{
+    tip
+    tvrdoca u nm
+    cijena
+}
+
+class "naplatci" as kot{
+    ime
+    broj krakova
+    proizvodjac guma
+    cijena
 }
 
 class "prijenos" as p{
@@ -90,7 +105,9 @@ class "kupac" as k{
 
 
 a o-- m
-b -> a
+a o-- sus
+sus o-- kot
+b "1" -> "*" a
 m o-- p
 a o- i
 i o-- s
