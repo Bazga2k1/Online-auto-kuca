@@ -5,7 +5,6 @@ class "automobil" as a{
   osnovna cijena
 }
 
-
 class "narudzba" as n{
   sifra narudzbe
   ukupna cijena
@@ -14,6 +13,7 @@ class "narudzba" as n{
 
 class "stavka narudzbe" as sn{
   kolicina
+  r1 racun
 }
 
 class "motor" as m{
@@ -49,45 +49,15 @@ class "prijenos" as p{
 }
 
 class "interijer" as i{
-  materijal
-  boja
-  cijena
-}
-
-class "sjedala" as s{
-  materijal
-  grijanje
-  masaza
-  cijena
-}
-
-class "volan" as v{
-  materijal
-  multifunkcijski
-  grijanje
-  cijena
-}
-
-class "krov" as kr{
-  tip
-  cijena
-}
-
-class "centralna konzola" as ck{
-  glavni materijal
+  ime paketa
+  materijal centralne konzole
   materijal detalja
-  cijena
-}
-
-class "radio" as r{
-  tip
-  velicina ekrana
-  cijena
-}
-
-class "klimatizacija" as kl{
-  tip
-  broj zona
+  sjedala
+  klimatizacija
+  krov
+  volan
+  radio
+  boja
   cijena
 }
 
@@ -103,21 +73,21 @@ class "kupac" as k{
   oib
 }
 
+class "firma" as f{
+    naziv
+    adresa
+}
 
-a o-- m
-a o-- sus
-sus o-- kot
+
+a "*" o-- "*" m
+a "*" o-- "*" sus
+sus "*" o-- "*" kot
 b "1" -> "*" a
-m o-- p
-a o- i
-i o-- s
-i o-- v
-i o-- kr
-i o-- ck
-ck o-- r
-ck o-- kl
+m "*" o-- "*" p
+a "*" o- "1" i
 n *- "1..*" sn
-sn o-- a
+sn "*" o-- "1" a
 k "1" --> "*" n
+k "1" <-- "1" f
 
 @enduml
