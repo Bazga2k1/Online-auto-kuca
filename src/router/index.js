@@ -11,6 +11,16 @@ const routes = [
     component: HomeView
   },
   {
+    path: '/prijava',
+    name: 'Login-view',
+    component: Login
+  },
+  {
+    path: '/registracija_firme',
+    name: 'Register-view',
+    component: Register
+  },
+  {
     path: '/about',
     name: 'about',
     // route level code-splitting
