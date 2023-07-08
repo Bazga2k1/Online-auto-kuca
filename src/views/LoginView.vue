@@ -1,35 +1,27 @@
 <template>
     <div>
-    Korisničko ime: <input type="email" v-model="email" placeholder="Enter your email">
-    <button @click="submitEmail">Submit</button>
-    <p v-if="submitted">You entered: {{ email }}</p>
-    <p v-if="!validEmail">Please enter a valid email address.</p>
+    <form>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Unesite Vaš OIB: </label>
+        <input type="OIB" class="form-control" id="exampleInputOIB" aria-describedby="OIBHelp" placeholder="Unesite OIB">
+        <small id="emailOIB" class="form-text text-muted"><br>Vaš OIB je privatan i vidljiv samo Vama</small>
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Lozinka: </label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    </div>
+    <br>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Zapamti prijavu</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Prijava</button>
+</form>
     </div>
 </template>
 
 <script>
 export default{
-    name: "Login-View",
-    data() {
-        return {
-        email: '',
-        submitted: false,
-        validEmail: true
-        };
-    },
-    methods: {
-        submitEmail() {
-        if (this.isValidEmail()) {
-            this.submitted = true;
-        } else {
-            this.validEmail = false;
-        }
-        },
-
-        isValidEmail() {
-        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return regex.test(this.email);
-        }
-    }
 }
 </script>
