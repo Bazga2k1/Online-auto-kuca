@@ -18,6 +18,10 @@
     </div>
     <button type="submit" class="btn btn-primary">Prijava</button>
 </form>
+<br><br>
+<div>
+    Nemate račun za firmu? <router-link to="/registracija_firme">Registriajte se odmah</router-link>
+</div>
     </div>
 </template>
 
