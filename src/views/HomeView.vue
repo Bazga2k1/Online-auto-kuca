@@ -1,49 +1,144 @@
 <template>
-    <div>
-      <header>
-        <nav>
-          <ul>
-            <a href="#">Glavna stranic</a>
-            <a href="#">Katalog</a>
-            <a href="#">Usluge </a>
-            <a href="#">Kontatk</a>
-          </ul>
-        </nav>
-      </header>
-  
-      <main>
-        <section class="banner">
-          <h1>Audi</h1>
-          <p>Vorsprung durch Technik</p>
-          <a href="#" class="btn">Kompletni inventar</a>
-        </section>
-  
-        <section class="featured-cars">
-          <h2>Katalog</h2>
-          <div v-for="car in cars" :key="car.id" class="car-card">
-            <img :src="car.image" :alt="car.model">
-            <h3>{{ car.model }}</h3>
-            <p>Cijena: {{ car.price }}</p>
-            <a href="#" class="btn">Detaljnije</a>
-          </div>
-        </section>
-      </main>
-  
-      <footer>
-        <p></p>
-      </footer>
-    </div>
-  </template>
+  <v-container>
+    <h1>Audi</h1>
+    <v-row>
+      <v-col>
+        <v-card
+    class="mx-auto"
+    max-width="344"
+  >
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      height="200px"
+    ></v-img>
+
+    <v-card-title>
+      A1
+    </v-card-title>
+
+    <v-card-subtitle>
+      Cijena:
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-btn
+        color="red lighten-2"
+        text
+      >
+        Konfiguracija
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        icon
+        @click="show = !show"
+      >
+        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <div v-show="show">
+        <v-divider></v-divider>
+      </div>
+    </v-expand-transition>
+  </v-card>
+      </v-col>
+      <v-col>
+        <v-card
+    class="mx-auto"
+    max-width="344"
+  >
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      height="200px"
+    ></v-img>
+
+    <v-card-title>
+      A3
+    </v-card-title>
+
+    <v-card-subtitle>
+      Cijena:
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-btn
+        color="red lighten-2"
+        text
+      >
+        Konfiguracija
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        icon
+        @click="show = !show"
+      >
+        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <div v-show="show">
+        <v-divider></v-divider>
+      </div>
+    </v-expand-transition>
+  </v-card>
+      </v-col>
+      <v-col>
+        <v-card
+    class="mx-auto"
+    max-width="344"
+  >
+    <v-img
+      src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+      height="200px"
+    ></v-img>
+
+    <v-card-title>
+      A4
+    </v-card-title>
+
+    <v-card-subtitle>
+      Cijena: 
+    </v-card-subtitle>
+
+    <v-card-actions>
+      <v-btn
+        color="red lighten-2"
+        text
+      >
+        Konfiguracija
+      </v-btn>
+
+      <v-spacer></v-spacer>
+
+      <v-btn
+        icon
+        @click="show = !show"
+      >
+        <v-icon>{{ show ? 'mdi-chevron-up' : 'mdi-chevron-down' }}</v-icon>
+      </v-btn>
+    </v-card-actions>
+
+    <v-expand-transition>
+      <div v-show="show">
+      </div>
+    </v-expand-transition>
+  </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
+</template>
 
 <script>
-// @ is an alias to /src
+  export default {
+    name: 'Home-View',
 
-export default {
-  name: 'HomeView',
-  components: {
+    components: {
+    },
   }
-}
-
 </script>
-<style scoped>
-</style>

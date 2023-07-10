@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import LoginView from '../views/LoginView.vue'
+import RegisterView from '../views/RegisterView.vue'
 
 Vue.use(VueRouter)
 
@@ -13,14 +15,14 @@ const routes = [
 
   {
     path: '/prijava',
-    name: 'Login-view',
-    component: () => import(/* webpackChunkName: "login" */'../views/LoginView.vue')
+    name: 'LoginView',
+    component: LoginView
   },
 
   {
     path: '/registracija_firme',
-    name: 'Register-view',
-    component: () => import(/* webpackChunkName: "about" */ '../views/RegisterView.vue')
+    name: 'RegisterView',
+    component: RegisterView
   },
 
   {

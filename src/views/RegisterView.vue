@@ -3,38 +3,42 @@
 		<v-row align="center" justify="center">
 			<v-col align="center" justify="center" cols="12">
 				<v-card class="card-border" width="600px" outlined>
-					<v-card-title align="left">REGISTER</v-card-title>
-					<v-card-subtitle align="left">
-						Registracija firme
-					</v-card-subtitle>
+					<v-card-title align="left">Registracija firme</v-card-title>
 					<v-card-text>
 						<v-form v-model="valid">
 							<v-text-field
-								v-model="firstName"
+								v-model="companyName"
 								dense
-								label="Name"
+								label="Ime firme"
 								clearble
 								type="text"
 								outlined></v-text-field>
 							<v-text-field
-								v-model="lastName"
+								v-model="ownerFullName"
 								dense
-								label="Last Name"
+								label="Ime i prezime vlasnika"
 								clearble
 								type="text"
+								outlined></v-text-field>
+                                <v-text-field
+								v-model="userOIB"
+								dense
+								label="OIB"
+								clearble
+								type=""
 								outlined></v-text-field>
 							<v-text-field
 								v-model="email"
 								dense
-								label="Email"
+								label="E-mail firme"
 								clearble
-								type="text"
+								type="email"
 								:rules="[rules.required, rules.email]"
 								outlined></v-text-field>
 							<v-text-field
 								v-model="password"
 								dense
-								label="Password"
+								label="Zaporka"
 								clearble
 								:append-icon="
 									showIcon ? 'mdi-eye' : 'mdi-eye-off'
@@ -74,7 +78,7 @@ import {
 	createUserWithEmailAndPassword,
 } from "../../firebase.js";
 export default {
-	name: "RegisterView",
+	name: "RegistrationView",
 	components: {},
 	watch: {
 		valid: function (isValid) {
@@ -85,8 +89,9 @@ export default {
 		return {
 			isButtonDisabled: false,
 			valid: true,
-			firstName: null,
-			lastName: null,
+			companyName: null,
+			ownerFullName: null,
+            userOIB: null,
 			email: null,
 			password: null,
 			showIcon: false,
@@ -105,19 +110,20 @@ export default {
 	destroyed() {},
 	methods: {
 		clearFormData() {
-			this.firstName = null;
-			this.lastName = null;
+			this.companyName = null;
+			this.ownerFullName = null;
 			this.email = null;
 			this.password = null;
 		},
 		postActionMoveToView() {
-			this.$router.push({ path: "/animals" });
+			this.$router.push({ path: "/" });
 		},
-		async saveAdditionalData(user, email, firstName, lastName) {
+		async saveAdditionalData(user, email, companyName, ownerFullName, userOIB) {
 			await setDoc(doc(db, "users", email), {
 				Email: email,
-				FirstName: firstName,
-				LastName: lastName,
+				CompanyName: companyName,
+				OwnerFullName: ownerFullName,
+                OIB: userOIB,
 				AuthorisationType: "USER",
 			});
 		},
@@ -130,9 +136,10 @@ export default {
 					debugger;
 					// Signed in
 					const user = userCredential.user;
-					const firstName = this.firstName;
-					const lastName = this.lastName;
-					this.saveAdditionalData(user, email, firstName, lastName);
+					const companyName = this.companyName;
+					const ownerFullName = this.ownerFullName;
+                    const userOIB = this.userOIB;
+					this.saveAdditionalData(user, email, companyName, ownerFullName, userOIB);
 					this.postActionMoveToView();
 				})
 				.catch((error) => {
@@ -145,3 +152,23 @@ export default {
 	},
 };
 </script>
+
+<style>
+.card-border {
+	padding: 2%;
+}
+
+.card-text-border {
+	padding: 2.5%;
+}
+
+.card-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.btn-right-margin {
+	margin-right: 2%;
+}
+</style>

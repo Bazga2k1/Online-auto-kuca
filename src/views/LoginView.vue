@@ -1,31 +1,169 @@
 <template>
-    <div>
-    <form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Unesite Vaš OIB: </label>
-        <input type="OIB" class="form-control" id="exampleInputOIB" aria-describedby="OIBHelp" placeholder="Unesite OIB">
-        <small id="emailOIB" class="form-text text-muted"><br>Vaš OIB je privatan i vidljiv samo Vama</small>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="exampleInputPassword1">Lozinka: </label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <br>
-    <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Zapamti prijavu</label>
-    </div>
-    <button type="submit" class="btn btn-primary"> Prijava </button>
-</form>
-<br><br>
-<div>
-    Nemate račun za firmu? <router-link to="/registracija_firme">Registriajte se odmah</router-link>
-</div>
-    </div>
+	<v-container fill-height fluid class="background">
+		<v-row align="center" justify="center">
+			<v-col align="center" justify="center" cols="12">
+				<v-card class="card-border" width="600px" outlined>
+					<v-card-title align="left">LOGIN</v-card-title>
+					<v-card-subtitle align="left">
+						Unesite Vaše podatke
+					</v-card-subtitle>
+					<v-card-text class="card-text-border">
+						<v-form v-model="valid">
+							<v-text-field
+								v-model="email"
+								dense
+								label="E-mail"
+								clearble
+								type="email"
+								:rules="[rules.required, rule.email]"
+								outlined></v-text-field>
+							<v-text-field
+								v-model="password"
+								dense
+								label="Password"
+								clearble
+								:append-icon="
+									showIcon ? 'mdi-eye' : 'mdi-eye-off'
+								"
+								:rules="[rules.required, rules.min]"
+								:type="showIcon ? 'text' : 'password'"
+								outlined></v-text-field>
+						</v-form>
+						<v-btn
+							@click="openDialog"
+							class="link-left"
+							text
+							x-small
+							color="blue">
+							Zaboravili ste lozinku?
+						</v-btn>
+					</v-card-text>
+					<v-card-actions class="card-actions">
+						<v-btn
+							@click="login"
+							:disabled="isButtonDisabled"
+							outlined>
+							OK
+						</v-btn>
+					</v-card-actions>
+				</v-card>
+				<v-dialog
+					width="300px"
+					outlined
+					persistent
+					v-model="passwordIssuesDialog">
+					<v-card class="card-border">
+						<v-card-title>E-mail</v-card-title>
+						<v-card-subtitle>
+							Unesite Vaš E-mail
+						</v-card-subtitle>
+						<v-card-text>
+							<v-text-field
+								v-model="emailForPassword"
+								dense
+								label="Email"
+								clearble
+								type="text"
+								:rules="[rules.required, rules.email]"
+								outlined></v-text-field>
+						</v-card-text>
+						<v-card-actions class="card-actions">
+							<v-btn
+								class="btn-right-margin"
+								color="red darken-3"
+								outlined
+								text
+								small
+								@click="closeDialog">
+								CLOSE
+							</v-btn>
+							<v-btn
+								outlined
+								text
+								@click="resetPassword(emailForPassword)">
+								SEND
+							</v-btn>
+						</v-card-actions>
+					</v-card>
+				</v-dialog>
+			</v-col>
+		</v-row>
+	</v-container>
 </template>
-
 <script>
-export default{
-}
+import {
+	auth,
+	sendPasswordResetEmail,
+	signInWithEmailAndPassword,
+} from "../../firebase.js";
+export default {
+	name: "LoginView",
+	components: {},
+	watch: {
+		valid: function (newVal) {
+			if (newVal != true) {
+				this.isButtonDisabled = true;
+			} else {
+				this.isButtonDisabled = false;
+			}
+		},
+	},
+	data() {
+		return {
+			emailForPassword: null,
+			passwordIssuesDialog: false,
+			isButtonDisabled: false,
+			valid: true,
+			email: null,
+			password: null,
+			showIcon: false,
+			rules: {
+				required: (value) => !!value || "Required.",
+				min: (v) => v?.length >= 6 || "Min 6 characters",
+				email: (v) =>
+					!v ||
+					/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+					"E-mail must be valid",
+			},
+		};
+	},
+	methods: {
+		login() {
+			let email = this.email;
+			let password = this.password;
+			signInWithEmailAndPassword(auth, email, password)
+				.then(() => {
+					this.$router.push("/");
+				})
+				.catch((error) => {
+					alert(error.message);
+				});
+		},
+		resetPassword(email) {
+			sendPasswordResetEmail(auth, email)
+				.then(() => {
+					console.log("Email sent");
+				})
+				.catch((error) => {
+					console.log(error)
+					// ..
+				});
+			this.closeDialog();
+		},
+		postActionMoveToView() {
+			this.$router.push({ path: "/" });
+		},
+		closeDialog() {
+			this.passwordIssuesDialog = false;
+		},
+		openDialog() {
+			this.passwordIssuesDialog = true;
+		},
+	},
+	created() {},
+	mounted() {},
+	destroyed() {},
+};
 </script>
+
+<style></style>
