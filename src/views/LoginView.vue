@@ -16,7 +16,7 @@
         <input type="checkbox" class="form-check-input" id="exampleCheck1">
         <label class="form-check-label" for="exampleCheck1">Zapamti prijavu</label>
     </div>
-    <button type="submit" class="btn btn-primary">Prijava</button>
+    <button type="submit" class="btn btn-primary"> Prijava </button>
 </form>
 <br><br>
 <div>

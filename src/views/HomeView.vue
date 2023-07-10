@@ -3,10 +3,10 @@
       <header>
         <nav>
           <ul>
-            <li><a href="#">Glavna stranica</a></li>
-            <li><a href="#">Katalog</a></li>
-            <li><a href="#">Usluge</a></li>
-            <li><a href="#">Kontatk</a></li>
+            <a href="#">Glavna stranic</a>
+            <a href="#">Katalog</a>
+            <a href="#">Usluge </a>
+            <a href="#">Kontatk</a>
           </ul>
         </nav>
       </header>
@@ -45,6 +45,5 @@ export default {
 }
 
 </script>
-
 <style scoped>
 </style>
