@@ -78,7 +78,7 @@ import {
 	createUserWithEmailAndPassword,
 } from "../../firebase.js";
 export default {
-	name: "RegistrationView",
+	name: "RegisterView",
 	components: {},
 	watch: {
 		valid: function (isValid) {
@@ -96,12 +96,12 @@ export default {
 			password: null,
 			showIcon: false,
 			rules: {
-				required: (value) => !!value || "Required.",
-				min: (v) => v?.length >= 6 || "Min 6 characters",
+				required: (value) => !!value || "Obavezno",
+				min: (v) => v?.length >= 6 || "Minimalno 6 znakova",
 				email: (v) =>
 					!v ||
 					/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-					"E-mail must be valid",
+					"E-mail mora biti postojeći",
 			},
 		};
 	},

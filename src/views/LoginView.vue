@@ -3,7 +3,7 @@
 		<v-row align="center" justify="center">
 			<v-col align="center" justify="center" cols="12">
 				<v-card class="card-border" width="600px" outlined>
-					<v-card-title align="left">LOGIN</v-card-title>
+					<v-card-title align="left">Prijava</v-card-title>
 					<v-card-subtitle align="left">
 						Unesite Vaše podatke
 					</v-card-subtitle>
@@ -97,7 +97,7 @@ import {
 	signInWithEmailAndPassword,
 } from "../../firebase.js";
 export default {
-	name: "LoginView",
+	name: 'LoginView',
 	components: {},
 	watch: {
 		valid: function (newVal) {
@@ -118,12 +118,12 @@ export default {
 			password: null,
 			showIcon: false,
 			rules: {
-				required: (value) => !!value || "Required.",
-				min: (v) => v?.length >= 6 || "Min 6 characters",
+				required: (value) => !!value || "Obavezno polje",
+				min: (v) => v?.length >= 6 || "Minimalno 6 znakova",
 				email: (v) =>
 					!v ||
 					/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-					"E-mail must be valid",
+					"E-mail mora biti postojeći",
 			},
 		};
 	},
@@ -142,7 +142,7 @@ export default {
 		resetPassword(email) {
 			sendPasswordResetEmail(auth, email)
 				.then(() => {
-					console.log("Email sent");
+					console.log("E-mail poslan");
 				})
 				.catch((error) => {
 					console.log(error)
