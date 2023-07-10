@@ -11,7 +11,7 @@
           alt="Audi Logo"
           class="shrink mr-2"
           contain
-          src="https://www.pngkit.com/png/full/139-1391126_the-worlds-finest-technology-companies-train-at-linux.png"
+          src="./assets/audi-logo.png"
           width="40"
         />
 

@@ -2,12 +2,12 @@
   <v-container>
     <h1>Audi</h1>
     <v-row>
-
       <v-col>
         <carCardComponent 
-        :carName="A1"
-        :cijena="34499.69"
-        :image-url= "this.imageUrl1" >
+        car-name="A1"
+        cijena="34499.69"
+        :image-url=" '../../public/HomeView/' + 'car1.png'"
+        >
         </carCardComponent>
       </v-col>
 

@@ -4,12 +4,13 @@
     max-width="344"
   >
     <v-img
-      :src="this.imageUrl"
+      
+      v-bind:src="this.imageUrl"
       height="200px"
     ></v-img>
 
     <v-card-title>
-      {{ this.carName }}
+        {{ this.carName }}
     </v-card-title>
 
     <v-card-subtitle>
@@ -38,7 +39,6 @@
 
 <script>
 export default {
-
     props: {
         carName: null,
         cijena: null,
