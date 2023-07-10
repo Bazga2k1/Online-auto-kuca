@@ -25,6 +25,10 @@
         />
       </div>
 
+    <v-btn text class="pa-5">
+      Prijava
+    </v-btn>
+
     </v-app-bar>
 
     <v-main>
