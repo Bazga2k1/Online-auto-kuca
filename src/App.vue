@@ -24,10 +24,12 @@
           width="200"
         />
       </div>
-
-    <v-btn text class="pa-5">
-      Prijava
-    </v-btn>
+    
+    <v-col align="right">
+      <v-btn text class="pa-3" color="grey lighten-6">
+        Prijava za kupnju kroz R1 račun
+      </v-btn>
+    </v-col>
 
     </v-app-bar>
 

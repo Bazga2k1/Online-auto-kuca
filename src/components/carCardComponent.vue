@@ -6,7 +6,7 @@
     <v-img
       
       v-bind:src="this.imageUrl"
-      height="200px"
+      height="180px"
     ></v-img>
 
     <v-card-title>
@@ -14,12 +14,13 @@
     </v-card-title>
 
     <v-card-subtitle>
-      Cijena: {{ this.cijena }} € 
+      Cijena: od {{ this.cijena }} € 
     </v-card-subtitle>
 
     <v-card-actions>
       <v-btn
-        color="red lighten-2"
+        rounded
+        color="orange lighten-1"
         text
       >
         Konfiguracija
