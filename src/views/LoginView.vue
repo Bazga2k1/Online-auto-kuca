@@ -12,15 +12,15 @@
 							<v-text-field
 								v-model="email"
 								dense
-								label="E-mail"
+								label="E-mail firme"
 								clearble
 								type="email"
-								:rules="[rules.required, rule.email]"
+								:rules="[rules.required, rules.email]"
 								outlined></v-text-field>
 							<v-text-field
 								v-model="password"
 								dense
-								label="Password"
+								label="Zaporka"
 								clearble
 								:append-icon="
 									showIcon ? 'mdi-eye' : 'mdi-eye-off'
@@ -36,6 +36,13 @@
 							x-small
 							color="blue">
 							Zaboravili ste lozinku?
+						</v-btn>
+						<v-btn
+							outlined
+							x-small
+							color="orange lighten-1"
+							href="/registracija_firme">
+							Nemate račun za firmu? Registrirajte se ovdje
 						</v-btn>
 					</v-card-text>
 					<v-card-actions class="card-actions">
@@ -61,7 +68,7 @@
 							<v-text-field
 								v-model="emailForPassword"
 								dense
-								label="Email"
+								label="E-mail firme"
 								clearble
 								type="text"
 								:rules="[rules.required, rules.email]"
@@ -145,8 +152,7 @@ export default {
 					console.log("E-mail poslan");
 				})
 				.catch((error) => {
-					console.log(error)
-					// ..
+					alert(error.message);
 				});
 			this.closeDialog();
 		},
@@ -166,4 +172,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

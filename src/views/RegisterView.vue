@@ -25,7 +25,7 @@
 								dense
 								label="OIB"
 								clearble
-								type=""
+								type="integer"
 								outlined></v-text-field>
 							<v-text-field
 								v-model="email"

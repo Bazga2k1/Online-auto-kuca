@@ -26,7 +26,7 @@
       </div>
     
     <v-col align="right">
-      <v-btn text class="pa-3" color="grey lighten-6">
+      <v-btn text class="pa-3" color="grey lighten-6" href="/prijava">
         Prijava za kupnju kroz R1 račun
       </v-btn>
     </v-col>
