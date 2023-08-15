@@ -7,13 +7,15 @@
     >
 
       <div class="d-flex align-center">
-        <v-img
-          alt="Audi Logo"
-          class="shrink mr-2"
-          contain
-          src="./assets/audi-logo.png"
-          width="40"
-        />
+        <v-btn href="/">
+          <v-img
+            alt="Audi Logo"
+            class="shrink mr-2"
+            contain
+            src="./assets/audi-logo.png"
+            width="40"
+          />
+        </v-btn>
 
         <v-img
           alt="Slogan"

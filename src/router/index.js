@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import ConfigView1 from '../views/ConfigView1.vue'
+import carName from '../components/carCardComponent'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,12 @@ const routes = [
     path: '/registracija_firme',
     name: 'RegisterView',
     component: RegisterView
+  },
+
+  {
+    path: '/konfiguracija1/:car-name',
+    name: 'ConfigView1',
+    component: ConfigView1, carName
   },
 
   {
