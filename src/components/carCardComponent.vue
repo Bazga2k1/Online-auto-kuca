@@ -22,7 +22,7 @@
         rounded
         color="orange lighten-1"
         text
-        href="/konfiguracija1/:carName"
+        href="/konfiguracija1/':carName'"
       >
         Konfiguracija
       </v-btn>
