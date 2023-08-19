@@ -28,7 +28,7 @@ const routes = [
   },
 
   {
-    path: '/konfiguracija1/:car-name',
+    path: '/:carName/konfiguracija1',
     name: 'ConfigView1',
     component: ConfigView1, carName
   },
