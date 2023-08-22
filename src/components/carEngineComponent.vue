@@ -3,7 +3,8 @@
     class="mx-auto"
     max-width="1000px">
     <v-img
-        v-bind:src="this.imageUrl">
+        v-bind:src="this.imageUrl"
+        width="200px">
     </v-img>
 
     <v-card-title>
@@ -18,6 +19,16 @@
     <v-card-subtitle>
         <b>{{ this.cijena }} €</b>
     </v-card-subtitle>
+    <v-card-actions>
+      <v-btn
+        rounded
+        color="green lighten-1"
+        text
+        href="/:carName/konfiguracija3"
+      >
+        Odabir
+      </v-btn>
+    </v-card-actions>
     </v-card>
 </template>
 

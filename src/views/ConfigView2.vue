@@ -1,17 +1,88 @@
 <template>
   <v-container>
     <h1>Odaberite motor</h1><br>
-    <v-divider></v-divider>
-        
+    <v-divider></v-divider><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="30TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="35TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="40TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="45TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="50TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="1.9TDI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="2.0TDI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent><br>
   </v-container>
 </template>
 
 <script>
-export default {
+import carEngineComponent from '@/components/carEngineComponent.vue';
 
+export default {
+    name: 'ConfigView2',
+
+    components:{
+        carEngineComponent
+    },
 }
 </script>
-
-<style>
-
-</style>

@@ -3,8 +3,9 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import RegisterView from '../views/RegisterView.vue'
-import ConfigView1 from '../views/ConfigView1.vue'
 import carName from '../components/carCardComponent'
+import ConfigView1 from '../views/ConfigView1.vue'
+import ConfigView2 from '../views/ConfigView2.vue'
 
 Vue.use(VueRouter)
 
@@ -31,6 +32,12 @@ const routes = [
     path: '/:carName/konfiguracija1',
     name: 'ConfigView1',
     component: ConfigView1, carName
+  },
+
+  {
+    path: '/:carName/konfiguracija2',
+    name: 'ConfigView2',
+    component: ConfigView2, carName
   },
 
   {
