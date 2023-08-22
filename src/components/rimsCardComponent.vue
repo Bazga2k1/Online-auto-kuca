@@ -42,7 +42,6 @@
          velicina: null,
          cijena: null,
          imageUrl: null,
- 
      }
  }
  </script>

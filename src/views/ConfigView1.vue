@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Odaberite paket naplacia</h1><br>
+    <h1>Odaberite paket naplataka</h1><br>
     <v-divider></v-divider>
 
     <v-card-title>17"</v-card-title>
