@@ -24,6 +24,17 @@
      <v-card-subtitle>
        Cijena: {{ this.cijena }} € 
      </v-card-subtitle>
+
+     <v-card-actions>
+      <v-btn
+        rounded
+        color="green lighten-1"
+        text
+        :to="'/' + carName + '/konfiguracija2'"
+      >
+        Odabir
+      </v-btn>
+    </v-card-actions>
  
        <v-spacer></v-spacer>
  

@@ -25,7 +25,7 @@
         rounded
         color="green lighten-1"
         text
-        href="/:carName/konfiguracija3"
+        :to="'/' + carName + '/konfiguracija3'"
       >
         Odabir
       </v-btn>
