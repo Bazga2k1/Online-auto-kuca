@@ -1,19 +1,20 @@
 <template>
     <v-card 
     class="mx-auto"
-    max-width="1000px">
+    max-width="500"
+    >
     <v-img
         v-bind:src="this.imageUrl"
-        width="200px">
-    </v-img>
+        width="200px"
+    ></v-img>
 
     <v-card-title>
         {{ this.engineName }}
     </v-card-title><br>
     <v-card-subtitle>
-        {{ this.displacement }}<br>
-        {{ this.power }}, {{ this.torque }}<br>
-        {{ this.economy }}<br>
+        {{ this.displacement }} ccm<br>
+        {{ this.power }} kW, {{ this.torque }} Nm<br>
+        {{ this.economy }} l/100km<br>
         {{ this.fuel }}
     </v-card-subtitle>
     <v-card-subtitle>
@@ -36,8 +37,13 @@
 
 export default {
     props:{
-        imageUrl: null,
-        engineName: null
+        engineName: null,
+        displacement: null,
+        power: null,
+        torque: null,
+        economy: null,
+        fuel: null,
+        imageUrl: null
     }
 }
 </script>

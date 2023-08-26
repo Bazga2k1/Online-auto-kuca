@@ -24,16 +24,6 @@
     </carEngineComponent><br>
     <carEngineComponent
     img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
-    engineName="40TFSI"
-    displacement=""
-    power=""
-    torque=""
-    economy=""
-    fuel=""
-    cijena="">
-    </carEngineComponent><br>
-    <carEngineComponent
-    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
     engineName="45TFSI"
     displacement=""
     power=""
@@ -45,6 +35,16 @@
     <carEngineComponent
     img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
     engineName="50TFSI"
+    displacement=""
+    power=""
+    torque=""
+    economy=""
+    fuel=""
+    cijena="">
+    </carEngineComponent>
+    <carEngineComponent
+    img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+    engineName="55TFSI"
     displacement=""
     power=""
     torque=""
