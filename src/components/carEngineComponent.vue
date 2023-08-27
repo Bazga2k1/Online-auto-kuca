@@ -43,6 +43,7 @@ export default {
         torque: null,
         economy: null,
         fuel: null,
+        cijena: null,
         imageUrl: null
     }
 }

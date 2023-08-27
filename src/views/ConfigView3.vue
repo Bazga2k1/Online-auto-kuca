@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1>Odaberite interijer</h1>
-    <v-divider></v-divider>
+    <v-divider></v-divider><br>
 
     <carInteriorComponent
       image-url="http://img.polovniautomobilioglasi.com/gonline_graphics/hrv_19508070_O_64d3f9d214f08.jpg"
