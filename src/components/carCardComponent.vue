@@ -23,6 +23,8 @@
         color="orange lighten-1"
         text
         :to="'/' + carName + '/konfiguracija1'"
+        :carAuto = "carName"
+        :priceAuto = "cijena"
       >
         Konfiguracija
       </v-btn>
@@ -45,11 +47,6 @@ export default {
         carName: null,
         cijena: null,
         imageUrl: null,
-
     }
 }
 </script>
-
-<style>
-
-</style>

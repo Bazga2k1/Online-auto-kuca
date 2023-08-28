@@ -163,6 +163,11 @@ import rimsCardComponent from "@/components/rimsCardComponent.vue"
 export default {
   name: 'ConfigView1',
 
+  props: {
+    carAuto: String,
+    priceAuto: Number
+  },
+
   components: {
     rimsCardComponent
   },

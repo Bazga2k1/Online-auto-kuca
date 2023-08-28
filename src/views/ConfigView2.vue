@@ -5,7 +5,7 @@
     <h3>Benzinski pogon</h3><br>
     <v-row>
       <v-col>
-        <carEngineComponent
+        <engineCardComponent
         img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
         engineName="30 TFSI"
         displacement="999"
@@ -14,10 +14,10 @@
         economy="6.8"
         fuel="Benzin"
         cijena="0">
-        </carEngineComponent><br>
+        </engineCardComponent><br>
         </v-col>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="35 TFSI"
           displacement="1498"
@@ -26,12 +26,12 @@
           economy="5.5"
           fuel="Benzin"
           cijena="2000">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
       </v-row>
       <v-row>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="40 TFSI"
           displacement="1984"
@@ -40,10 +40,10 @@
           economy="5.6"
           fuel="Benzin"
           cijena="4000">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="45 TFSI"
           displacement="1395"
@@ -52,12 +52,12 @@
           economy="6.5"
           fuel="Benzin"
           cijena="4500">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
           </v-col>
         </v-row>
       <v-row>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="50 TFSI"
           displacement="1995"
@@ -66,10 +66,10 @@
           economy="7.0"
           fuel="Benzin"
           cijena="7500">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="55 TFSI Quattro"
           displacement="2995"
@@ -78,14 +78,14 @@
           economy="6.7"
           fuel="Benzin"
           cijena="10000">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
       </v-row>
       <v-divider></v-divider><br>
       <h3>Dizel pogon</h3><br>
       <v-row>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="30 TDI"
           displacement="1968"
@@ -94,10 +94,10 @@
           economy="3.5"
           fuel="Diesel"
           cijena="3000">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
         <v-col>
-          <carEngineComponent
+          <engineCardComponent
           img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
           engineName="35 TDI"
           displacement="1968"
@@ -106,20 +106,20 @@
           economy="3.7"
           fuel="Diesel"
           cijena="5000">
-          </carEngineComponent><br>
+          </engineCardComponent><br>
         </v-col>
       </v-row>
   </v-container>
 </template>
 
 <script>
-import carEngineComponent from '@/components/carEngineComponent.vue';
+import engineCardComponent from '@/components/enigneCardComponent.vue';
 
 export default {
     name: 'ConfigView2',
 
     components:{
-        carEngineComponent
+        engineCardComponent
     },
 }
 </script>

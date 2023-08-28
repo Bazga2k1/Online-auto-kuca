@@ -7,6 +7,8 @@ import carName from '../components/carCardComponent'
 import ConfigView1 from '../views/ConfigView1.vue'
 import ConfigView2 from '../views/ConfigView2.vue'
 import ConfigView3 from '../views/ConfigView3.vue'
+import ConfigView4 from '../views/ConfigView4.vue'
+import TotalView from '../views/TotalView.vue'
 
 Vue.use(VueRouter)
 
@@ -45,6 +47,18 @@ const routes = [
     path: '/:carName/konfiguracija3',
     name: 'ConfigView3',
     component: ConfigView3, carName
+  },
+
+  {
+    path: '/:carName/konfiguracija4',
+    name: 'ConfigView4',
+    component: ConfigView4, carName
+  },
+
+  {
+    path: '/:carName/narudzba',
+    name: 'TotalView',
+    component: TotalView, carName
   },
 
   {

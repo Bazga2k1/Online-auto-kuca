@@ -62,7 +62,6 @@ import carCardComponent from "@/components/carCardComponent.vue"
 export default {
     name: 'HomeView',
     data: () =>({
-      imageUrl1 : "https://cdn.vuetifyjs.com/images/cards/sunshine.jpg",
     }),
 
     components: {
