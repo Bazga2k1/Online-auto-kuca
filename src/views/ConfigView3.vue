@@ -28,7 +28,7 @@ import interiorCardComponent from '@/components/interiorCardComponent.vue';
 export default {
   name: 'ConfigView3',
 
-  components:{
+  components: {
     interiorCardComponent
   },
 }

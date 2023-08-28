@@ -37,7 +37,7 @@
             image-url="https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEWxlYS0qLkvIZgewAJq7M3MT0VP2sgtR0fka-gqL8lNLkkpTUksTMnGJ2kCE85nN6fpgtXuzjvaiO9-Cniy_5toZIMzAzMHAwgDDIFAZBDQMigTC7i2uIo6dPMABV2zOJuAAAAA?wid=90">
           </rimsCardComponent>
         </v-col>
-      <br>
+      <br><br>
     </v-row>
     <v-divider></v-divider>
 
@@ -75,7 +75,7 @@
           imageUrl="https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEWxlYS0qLkvIZgewAJq7M3MT0VP2sgtR0fka-gqL8lNLkkpTUksTMnGJ2kCE8X4xK9mt6FW6bsOrYVKHUnOn-Cx_cYGBmYOBgAGGQKQyCGgZEAmF2F9cQR0-fYACMyCNkuAAAAA?wid=90">
       </rimsCardComponent>
       </v-col>
-      <br>
+      <br><br>
     </v-row>
     <v-divider></v-divider>
     
@@ -121,7 +121,7 @@
           imageUrl="https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEWxlYS0qLkvIZgewAJq7M3MT0VP2sgtR0fka-gqL8lNLkkpTUksTMnGJ2kCE8mXza_QY_5DY8f3h0A4dqff2a0DxJBmYGBg4GEAaZwiCoYUAkEGZ3cQ1x9PQJBgCSjCAeuAAAAA?wid=90">
         </rimsCardComponent>
       </v-col>
-      <br>
+      <br><br>
     </v-row>
     <v-divider></v-divider>
 
@@ -151,7 +151,7 @@
           imageUrl="https://mediaservice.audi.com/media/fast/H4sIAAAAAAAAAFvzloG1tIiBOTrayfuvpGh6-m1zJgaGigIGBgZGoDhTtNOaz-I_2DhCHsCEWxlYS0qLkvIZgewAJq7M3MT0VP2sgtR0fka-gqL8lNLkkpTUksTMnGJ2kCE8a75If-wX3uAmYCrrfaf8uLlwtW4TAzMDAwcDCINMYRDUMCASCLO7uIY4evoEAwBHItmIuAAAAA?wid=90">
         </rimsCardComponent>
       </v-col>
-      <br>
+      <br><br>
     </v-row>
 
   </v-container>

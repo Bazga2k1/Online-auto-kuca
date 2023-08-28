@@ -1,23 +1,24 @@
 <template>
     <v-card 
     class="mx-auto"
-    max-width="500"
+    max-width="300"
     >
     <v-img
         v-bind:src="this.imageUrl"
-        width="200px"
+        width="110px"
+        align="center"
     ></v-img>
 
     <v-card-title>
         {{ this.engineName }}
     </v-card-title><br>
-    <v-card-subtitle>
+    <v-card-subtitle align="right">
         {{ this.displacement }} ccm<br>
         {{ this.power }} kW, {{ this.torque }} Nm<br>
         {{ this.economy }} l/100km<br>
         {{ this.fuel }}
     </v-card-subtitle>
-    <v-card-subtitle>
+    <v-card-subtitle align="center">
         <b>{{ this.cijena }} €</b>
     </v-card-subtitle>
     <v-card-actions>

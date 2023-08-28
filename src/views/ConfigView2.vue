@@ -6,7 +6,7 @@
     <v-row>
       <v-col>
         <engineCardComponent
-        img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+        imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
         engineName="30 TFSI"
         displacement="999"
         power="81"
@@ -18,7 +18,7 @@
         </v-col>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="35 TFSI"
           displacement="1498"
           power="110"
@@ -32,7 +32,7 @@
       <v-row>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="40 TFSI"
           displacement="1984"
           power="150"
@@ -44,7 +44,7 @@
         </v-col>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="45 TFSI"
           displacement="1395"
           power="180"
@@ -58,7 +58,7 @@
       <v-row>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="50 TFSI"
           displacement="1995"
           power="210"
@@ -70,7 +70,7 @@
         </v-col>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="55 TFSI Quattro"
           displacement="2995"
           power="250"
@@ -86,7 +86,7 @@
       <v-row>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="30 TDI"
           displacement="1968"
           power="85"
@@ -98,7 +98,7 @@
         </v-col>
         <v-col>
           <engineCardComponent
-          img-url="https://cdn.icon-icons.com/icons2/2622/PNG/512/tech_engine_icon_157411.png"
+          imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="35 TDI"
           displacement="1968"
           power="110"

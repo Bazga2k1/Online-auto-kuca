@@ -5,16 +5,16 @@
     >
     <v-img
         v-bind:src="this.imageUrl"
-        width="200px"
+        height="100px"
     ></v-img>
 
     <v-card-title>
         {{ this.colorName }}
-    </v-card-title><br>
+    </v-card-title>
     <v-card-subtitle>
         {{ this.type }}
     </v-card-subtitle>
-    <v-card-subtitle>
+    <v-card-subtitle align="center">
         <b>{{ this.cijena }} €</b>
     </v-card-subtitle>
     <v-card-actions>
