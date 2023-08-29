@@ -15,7 +15,7 @@
         {{ this.type }}
     </v-card-subtitle>
     <v-card-subtitle align="center">
-        <b>{{ this.cijena }} €</b>
+        <b>{{ this.cijenaC }} €</b>
     </v-card-subtitle>
     <v-card-actions>
       <v-btn
@@ -36,7 +36,7 @@ export default {
     props:{
         colorName: null,
         type: null,
-        cijena: null,
+        cijenaC: null,
         imageUrl: null
     }
 }

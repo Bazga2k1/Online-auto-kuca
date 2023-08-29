@@ -19,7 +19,7 @@
         {{ this.fuel }}
     </v-card-subtitle>
     <v-card-subtitle align="center">
-        <b>{{ this.cijena }} €</b>
+        <b>{{ this.cijenaE }} €</b>
     </v-card-subtitle>
     <v-card-actions>
       <v-btn
@@ -44,7 +44,7 @@ export default {
         torque: null,
         economy: null,
         fuel: null,
-        cijena: null,
+        cijenaE: null,
         imageUrl: null
     }
 }

@@ -22,7 +22,7 @@
      </v-card-subtitle>
  
      <v-card-subtitle>
-       Cijena: {{ this.cijena }} € 
+       Cijena: {{ this.cijenaI }} € 
      </v-card-subtitle>
 
      <v-card-actions>
@@ -51,7 +51,7 @@
      props: {
          intName: null,
          opis: null,
-         cijena: null,
+         cijenaI: null,
          imageUrl: null,
      }
  }

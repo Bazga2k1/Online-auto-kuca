@@ -13,7 +13,7 @@
         torque="200"
         economy="6.8"
         fuel="Benzin"
-        cijena="0">
+        cijenaE="0">
         </engineCardComponent><br>
         </v-col>
         <v-col>
@@ -25,7 +25,7 @@
           torque="270"
           economy="5.5"
           fuel="Benzin"
-          cijena="2000">
+          cijenaE="2000">
           </engineCardComponent><br>
         </v-col>
       </v-row>
@@ -39,7 +39,7 @@
           torque="320"
           economy="5.6"
           fuel="Benzin"
-          cijena="4000">
+          cijenaE="4000">
           </engineCardComponent><br>
         </v-col>
         <v-col>
@@ -51,7 +51,7 @@
           torque="370"
           economy="6.5"
           fuel="Benzin"
-          cijena="4500">
+          cijenaE="4500">
           </engineCardComponent><br>
           </v-col>
         </v-row>
@@ -65,7 +65,7 @@
           torque="410"
           economy="7.0"
           fuel="Benzin"
-          cijena="7500">
+          cijenaE="7500">
           </engineCardComponent><br>
         </v-col>
         <v-col>
@@ -77,7 +77,7 @@
           torque="500"
           economy="6.7"
           fuel="Benzin"
-          cijena="10000">
+          cijenaE="10000">
           </engineCardComponent><br>
         </v-col>
       </v-row>
@@ -93,7 +93,7 @@
           torque="300"
           economy="3.5"
           fuel="Diesel"
-          cijena="3000">
+          cijenaE="3000">
           </engineCardComponent><br>
         </v-col>
         <v-col>
@@ -105,7 +105,7 @@
           torque="360"
           economy="3.7"
           fuel="Diesel"
-          cijena="5000">
+          cijenaE="5000">
           </engineCardComponent><br>
         </v-col>
       </v-row>

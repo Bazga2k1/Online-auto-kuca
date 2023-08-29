@@ -8,7 +8,7 @@
       intName="Standardni interijer"
       opis='Platnena sjedala, navigacija, Bluetooth povezivanje, dvozonska klimatizacija, 7.5" display, putno računalo,
       bež platneni strop'
-      cijena="0">
+      cijenaI="0">
     </interiorCardComponent><br>
 
     <interiorCardComponent
@@ -17,7 +17,7 @@
       opis='Kožna profilirana sjedala, navigacija, Bluetooth povezivanje s glasovnim naredbama, digitalna kontrolna ploča,
       digitalna dvozonska klimatizacija, stražnja dvozonska klimatizacija, panorama, S-tronic multifunkcijski volan,
       putno računalo, dijagnostika, GPS praćenje s funkcijom poziva za hitne slučajeve'
-      cijena="2000">
+      cijenaI="2000">
     </interiorCardComponent>
   </v-container>
 </template>

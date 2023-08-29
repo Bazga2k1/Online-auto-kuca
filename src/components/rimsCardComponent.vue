@@ -22,7 +22,7 @@
      </v-card-subtitle>
  
      <v-card-subtitle>
-       Cijena: {{ this.cijena }} € 
+       Cijena: {{ this.cijenaR }} € 
      </v-card-subtitle>
 
      <v-card-actions>
@@ -51,7 +51,7 @@
      props: {
          rimName: null,
          velicina: null,
-         cijena: null,
+         cijenaR: null,
          imageUrl: null,
      }
  }
