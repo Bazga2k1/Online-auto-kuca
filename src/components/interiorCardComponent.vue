@@ -7,11 +7,12 @@
      <v-img
        v-bind:src="this.imageUrl"
        width="1000"
+       height="600"
      ></v-img><br>
  
      <v-card-item>
         <div>
-            <div class="text-h5 mb">
+            <div class="text-h5 mb ml-4">
               {{ this.intName }}
             </div>
         </div>

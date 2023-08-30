@@ -1,18 +1,18 @@
 <template>
     <v-card 
     class="mx-auto"
-    max-width="300"
+    max-width="200"
     >
     <v-img
         v-bind:src="this.imageUrl"
         width="110px"
-        align="center"
+        class="mx-auto"
     ></v-img>
 
-    <v-card-title>
+    <v-card-title class="justify-center">
         {{ this.engineName }}
     </v-card-title><br>
-    <v-card-subtitle align="right">
+    <v-card-subtitle align="center">
         {{ this.displacement }} ccm<br>
         {{ this.power }} kW, {{ this.torque }} Nm<br>
         {{ this.economy }} l/100km<br>
@@ -23,6 +23,7 @@
     </v-card-subtitle>
     <v-card-actions>
       <v-btn
+        class="mx-auto"
         rounded
         color="green lighten-1"
         text

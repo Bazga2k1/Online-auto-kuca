@@ -4,18 +4,18 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {/*
-    autoIme: this.carName,
-    autoCijena: this.cijena,
-    rimIme: this.rimName,
-    rimCijena: this.cijenaR,
-    engineIme: this.engineIme,
-    engineCijena: this.cijenaE,
-    interiorIme: this.intName,
-    interiorCijena: this.cijenaI,
-    colorIme: this.colorName,
-    colorCijena: this.cijenaC,
-    totalCijena: 0 */
+  state: {
+    autoIme: null,
+    autoCijena: null,
+    rimIme: null,
+    rimCijena: null,
+    engineIme: null,
+    engineCijena: null,
+    interiorIme: null,
+    interiorCijena: null,
+    colorIme: null,
+    colorCijena: null,
+    totalCijena: 0
   },
 
   getters: {
@@ -67,6 +67,46 @@ export default new Vuex.Store({
   mutations: {
     addPrice(state){
       state.totalCijena += state.colorCijena + state.interiorCijena + state.engineCijena + state.rimCijena + state.autoCijena;
+    },
+
+    setAutoIme(state, payload){
+      state.autoIme = payload;
+    },
+
+    setAutoCijena(state, payload){
+      state.autoCijena = payload;
+    },
+
+    setRimIme(state, payload){
+      state.rimIme = payload;
+    },
+
+    setRimCijena(state, payload){
+      state.rimCijena = payload;
+    },
+
+    setEngineIme(state, payload){
+      state.engineIme = payload;
+    },
+
+    setEngineCijena(state, payload){
+      state.engineCijena = payload;
+    },
+
+    setInteriorIme(state, payload){
+      state.interiorIme = payload;
+    },
+
+    setInteriorCijena(state, payload){
+      state.interiorCijena = payload;
+    },
+
+    setColorIme(state, payload){
+      state.colorIme = payload;
+    },
+
+    setColorCijena(state, payload){
+      state.colorCijena = payload;
     }
   },
 

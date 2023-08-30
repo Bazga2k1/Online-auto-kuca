@@ -19,6 +19,7 @@
     </v-card-subtitle>
     <v-card-actions>
       <v-btn
+        class="mx-auto"
         rounded
         color="green lighten-1"
         text

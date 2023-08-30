@@ -28,8 +28,6 @@
           cijenaE="2000">
           </engineCardComponent><br>
         </v-col>
-      </v-row>
-      <v-row>
         <v-col>
           <engineCardComponent
           imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
@@ -42,6 +40,8 @@
           cijenaE="4000">
           </engineCardComponent><br>
         </v-col>
+      </v-row>
+      <v-row>
         <v-col>
           <engineCardComponent
           imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
@@ -54,9 +54,7 @@
           cijenaE="4500">
           </engineCardComponent><br>
           </v-col>
-        </v-row>
-      <v-row>
-        <v-col>
+          <v-col>
           <engineCardComponent
           imageUrl="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQTbP2ysa91vN83Q0zkLzUtgplpXcBvFYu1g&usqp=CAU"
           engineName="50 TFSI"
@@ -80,7 +78,7 @@
           cijenaE="10000">
           </engineCardComponent><br>
         </v-col>
-      </v-row>
+        </v-row>
       <v-divider></v-divider><br>
       <h3>Dizel pogon</h3><br>
       <v-row>

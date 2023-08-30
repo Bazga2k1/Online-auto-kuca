@@ -4,7 +4,7 @@
     <v-divider></v-divider>
 
     <v-card-title>17"</v-card-title>
-    <v-row>
+    <v-row class="my-2">
         <v-col>
           <rimsCardComponent
           rimName="Aluminijski petokraki naplaci"
@@ -42,7 +42,7 @@
     <v-divider></v-divider>
 
     <v-card-title>18"</v-card-title>
-    <v-row>
+    <v-row class="my-2">
       <v-col>
         <rimsCardComponent
           rimName="Audi Sport aluminijski naplaci sa sjajnim crnim detaljima"
@@ -80,7 +80,7 @@
     <v-divider></v-divider>
     
     <v-card-title>19"</v-card-title>
-    <v-row>
+    <v-row class="my-2">
       <v-col>
         <rimsCardComponent
           rimName="Dvostruki S-stil petokraki naplatci (Grafit siva)"
@@ -126,7 +126,7 @@
     <v-divider></v-divider>
 
     <v-card-title>20"</v-card-title>
-    <v-row>
+    <v-row class="my-2">
       <v-col>
         <rimsCardComponent
           rimName="Audi Sport dvostruki poligonalni petokraki naplaci"
