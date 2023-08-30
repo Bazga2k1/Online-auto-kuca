@@ -41,7 +41,7 @@
 							outlined
 							x-small
 							color="orange lighten-1"
-							href="/registracija_firme">
+							to="/registracija_firme">
 							Nemate račun za firmu? Registrirajte se ovdje
 						</v-btn>
 					</v-card-text>

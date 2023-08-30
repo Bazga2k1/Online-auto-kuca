@@ -19,7 +19,6 @@
 
     <v-card-actions>
       <v-btn
-        rounded
         color="orange lighten-1"
         text
         :to="'/' + carName + '/konfiguracija1'"

@@ -19,47 +19,47 @@ export default new Vuex.Store({
   },
 
   getters: {
-    AutoIme(state){
+    getAutoIme(state){
       return state.autoIme;
     },
 
-    AutocCjena(state){
+    getAutocCjena(state){
       return state.autoCijena;
     },
 
-    RimName(state){
+    getRimName(state){
       return state.rimIme;
     },
 
-    RimCijena(state){
+    getRimCijena(state){
       return state.rimCijena;
     },
 
-    EngineName(state){
+    getEngineName(state){
       return state.engineIme;
     },
 
-    EngineCijena(state){
+    getEngineCijena(state){
       return state.engineCijena;
     },
 
-    InteriorName(state){
+    getInteriorName(state){
       return state.interiorIme;
     },
 
-    InteriorCijena(state){
+    getInteriorCijena(state){
       return state.interiorCijena;
     },
 
-    ColorName(state){
+    getColorName(state){
       return state.colorIme;
     },
 
-    ColorCijena(state){
+    getColorCijena(state){
       return state.colorCijena;
     },
 
-    TotalCijena(state){
+    getTotalCijena(state){
       return state.totalCijena;
     }
   },
