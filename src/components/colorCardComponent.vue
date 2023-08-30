@@ -32,6 +32,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 
 export default {
     props:{
@@ -39,6 +40,10 @@ export default {
         type: null,
         cijenaC: null,
         imageUrl: null
+    },
+
+    methods: {
+      ...mapMutations({setAutoIme: "ColorIme", setAutoCijena: "ColorCijena"}),
     }
 }
 </script>

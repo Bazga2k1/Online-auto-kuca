@@ -48,12 +48,18 @@
  </template>
  
  <script>
+ import { mapMutations } from "vuex"
+
  export default {
      props: {
          intName: null,
          opis: null,
          cijenaI: null,
          imageUrl: null,
-     }
+     },
+
+     methods: {
+      ...mapMutations({setAutoIme: "InteriorIme", setAutoCijena: "InteriorCijena"}),
+    }
  }
  </script>

@@ -47,12 +47,18 @@
  </template>
  
  <script>
+ import { mapMutations } from "vuex"
+ 
  export default {
      props: {
          rimName: null,
          velicina: null,
          cijenaR: null,
          imageUrl: null,
-     }
+     },
+
+     methods: {
+      ...mapMutations({setAutoIme: "RimIme", setAutoCijena: "RimCijena"}),
+    }
  }
  </script>

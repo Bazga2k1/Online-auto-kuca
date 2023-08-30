@@ -36,6 +36,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex"
 
 export default {
     props:{
@@ -47,6 +48,10 @@ export default {
         fuel: null,
         cijenaE: null,
         imageUrl: null
+    },
+
+    methods: {
+      ...mapMutations({setAutoIme: "EngineIme", setAutoCijena: "EngineCijena"}),
     }
 }
 </script>

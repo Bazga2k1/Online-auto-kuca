@@ -41,11 +41,17 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
+
 export default {
     props: {
         carName: null,
         cijena: null,
         imageUrl: null,
+    },
+
+    methods: {
+      ...mapMutations({setAutoIme: "AutoIme", setAutoCijena: "AutoCijena"}),
     }
 }
 </script>
