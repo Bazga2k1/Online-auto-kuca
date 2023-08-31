@@ -6,7 +6,7 @@
       <v-col>
         <v-card
         class="mx-auto"
-        max-width="500"
+        width="350"
         variant="outlined">
           <v-card-title class="justify-center">Automobil</v-card-title>
           <v-card-subtitle></v-card-subtitle>
@@ -16,7 +16,7 @@
       <v-col>
         <v-card
         class="mx-auto"
-        max-width="500"
+        width="350"
         variant="outlined">
           <v-card-title class="justify-center">Motor</v-card-title>
           <v-card-subtitle></v-card-subtitle>
@@ -28,7 +28,7 @@
       <v-col>
         <v-card
         class="mx-auto"
-        max-width="500"
+        width="350"
         variant="outlined">
           <v-card-title class="justify-center">Naplatci</v-card-title>
           <v-card-subtitle></v-card-subtitle>
@@ -38,7 +38,7 @@
       <v-col>
         <v-card
         class="mx-auto"
-        max-width="500"
+        width="350"
         variant="outlined">
           <v-card-title class="justify-center">Interijer</v-card-title>
           <v-card-subtitle></v-card-subtitle>
@@ -48,7 +48,7 @@
       <v-col>
         <v-card
         class="mx-auto"
-        max-width="500"
+        width="350"
         variant="outlined">
           <v-card-title class="justify-center">Boja</v-card-title>
           <v-card-subtitle></v-card-subtitle>
@@ -56,6 +56,7 @@
         </v-card>
       </v-col>
     </v-row><br>
+    <h2 align="center">Ukupna cijena: {{  }} €</h2>
     <v-row>
       <v-col>
         <v-card-actions>
