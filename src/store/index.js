@@ -23,7 +23,7 @@ export default new Vuex.Store({
       return state.autoIme;
     },
 
-    getAutocCjena(state){
+    getAutoCijena(state){
       return state.autoCijena;
     },
 
@@ -66,7 +66,8 @@ export default new Vuex.Store({
 
   mutations: {
     addPrice(state){
-      state.totalCijena += state.colorCijena + state.interiorCijena + state.engineCijena + state.rimCijena + state.autoCijena;
+      state.totalCijena += parseFloat(state.colorCijena) + parseFloat(state.interiorCijena) +
+        parseFloat(state.engineCijena) + parseFloat(state.rimCijena) + parseFloat(state.autoCijena);
     },
 
     setAutoIme(state, payload){

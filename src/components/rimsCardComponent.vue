@@ -28,11 +28,11 @@
 
      <v-card-actions>
       <v-btn
+        @click="setStates"
         absolute bottom
         rounded
         color="green lighten-1"
         text
-        :to="'/' + carName + '/konfiguracija2'"
       >
         Odabir
       </v-btn>
@@ -47,7 +47,7 @@
  </template>
  
  <script>
- import { mapMutations } from "vuex"
+ import { mapMutations, mapGetters } from "vuex"
 
  export default {
      props: {
@@ -58,7 +58,17 @@
      },
 
      methods: {
-      ...mapMutations({setAutoIme: "RimIme", setAutoCijena: "RimCijena"}),
-    }
+      ...mapMutations({setRimIme: "setRimIme", setRimCijena: "setRimCijena"}),
+
+      setStates(){
+        this.setRimIme(this.rimName);
+        this.setRimCijena(this.cijenaR);
+        this.$router.push('/' + this.getAutoIme + '/konfiguracija2');
+      }
+    },
+
+    computed: {
+    ...mapGetters({getAutoIme: 'getAutoIme'})
+  },
  }
  </script>

@@ -14,16 +14,14 @@
     </v-card-title>
 
     <v-card-subtitle>
-      Cijena: od {{ this.cijena }} € 
+      Cijena: od {{ this.formatThousands(this.cijena) }} €
     </v-card-subtitle>
 
     <v-card-actions>
       <v-btn
+        @click="setStates"
         color="orange lighten-1"
         text
-        :to="'/' + carName + '/konfiguracija1'"
-        :carAuto = "carName"
-        :priceAuto = "cijena"
       >
         Konfiguracija
       </v-btn>
@@ -41,7 +39,7 @@
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapMutations, mapGetters } from "vuex";
 
 export default {
     props: {
@@ -50,8 +48,26 @@ export default {
         imageUrl: null,
     },
 
+    data: () => ({
+
+    }),
+
     methods: {
-      ...mapMutations({setAutoIme: "AutoIme", setAutoCijena: "AutoCijena"}),
-    }
+      ...mapMutations({setAutoIme: "setAutoIme", setAutoCijena: "setAutoCijena"}),
+
+      formatThousands(res){
+        return new Intl.NumberFormat('en-US').format(res);
+      },
+
+      setStates(){
+        this.setAutoIme(this.carName);
+        this.setAutoCijena(this.cijena);
+        this.$router.push('/' + this.getAutoIme + '/konfiguracija1');
+      }
+    },
+
+    computed: {
+    ...mapGetters({getAutoIme: 'getAutoIme'})
+  },
 }
 </script>
