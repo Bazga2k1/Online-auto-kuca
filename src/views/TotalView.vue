@@ -67,6 +67,7 @@
         <v-card-actions>
           <v-btn
           @click="buyCar"
+          :disabled="!selectedItem"
           class="mx-auto"
           width="300"
           height="70"
@@ -105,17 +106,24 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters, mapMutations } from "vuex"
 import { doc, collection, setDoc, getFirestore } from "firebase/firestore"
 import { getAuth } from "../../firebase"
 
 export default {
+  data: () => ({
+    selectedItem: null
+  }),
+
   name: 'TotalView',
 
   methods: {
+    ...mapMutations({setLokacija: "setLokacija"}),
+
     formatThousands(res){
         return new Intl.NumberFormat('en-US').format(res);
       },
+
 
     async buyCar(){
       const lokacijaIme = this.selectedItem;
@@ -126,6 +134,8 @@ export default {
       if(user){
         userEmail = user.email;
       }
+
+      this.setLokacija(lokacijaIme);
 
       const db = getFirestore();
       const docData = {
@@ -145,7 +155,7 @@ export default {
       };
 
       await setDoc(doc(collection(db, "narudzba")), docData);
-      this.$router.push('/' + this.getAutoIme + '/success');
+      this.$router.push('/success');
     }
   },
 

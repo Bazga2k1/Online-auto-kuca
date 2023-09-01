@@ -13,6 +13,7 @@ export default new Vuex.Store({
     engineCijena: null,
     interiorIme: null,
     interiorCijena: null,
+    lokacija: null,
     colorIme: null,
     colorCijena: null,
     totalCijena: 0
@@ -49,6 +50,10 @@ export default new Vuex.Store({
 
     getInteriorCijena(state){
       return state.interiorCijena;
+    },
+
+    getLokacija(state){
+      return state.lokacija;
     },
 
     getColorName(state){
@@ -100,6 +105,10 @@ export default new Vuex.Store({
 
     setInteriorCijena(state, payload){
       state.interiorCijena = payload;
+    },
+
+    setLokacija(state, payload){
+      state.lokacija = payload;
     },
 
     setColorIme(state, payload){

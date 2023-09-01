@@ -9,6 +9,7 @@ import ConfigView2 from '../views/ConfigView2.vue'
 import ConfigView3 from '../views/ConfigView3.vue'
 import ConfigView4 from '../views/ConfigView4.vue'
 import TotalView from '../views/TotalView.vue'
+import SuccessView from '../views/SuccessView.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,12 @@ const routes = [
     path: '/:carName/narudzba',
     name: 'TotalView',
     component: TotalView, carName
+  },
+
+  {
+    path: '/success',
+    name: 'SucessView',
+    component: SuccessView
   },
 
   {

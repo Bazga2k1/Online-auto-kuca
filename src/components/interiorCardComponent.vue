@@ -9,14 +9,11 @@
        width="1000"
        height="600"
      ></v-img><br>
- 
-     <v-card-item>
-        <div>
-            <div class="text-h5 mb ml-4">
-              {{ this.intName }}
-            </div>
-        </div>
-     </v-card-item>
+      <div>
+          <div class="text-h5 mb ml-4">
+            {{ this.intName }}
+          </div>
+      </div>
 
      <v-card-subtitle>
         {{ this.opis }}
@@ -38,12 +35,6 @@
     </v-card-actions>
  
        <v-spacer></v-spacer>
- 
-     <v-expand-transition>
-       <div v-show="show">
-         <v-divider></v-divider>
-       </div>
-     </v-expand-transition>
    </v-card>
  </template>
  
@@ -51,6 +42,7 @@
  import { mapMutations, mapGetters } from "vuex"
 
  export default {
+  name: 'interiorCardComponent',
      props: {
          intName: null,
          opis: null,

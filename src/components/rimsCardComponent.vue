@@ -9,14 +9,11 @@
        v-bind:src="this.imageUrl"
        width="115px"
      ></v-img>
- 
-     <v-card-item>
-        <div>
-            <div class="text-h9 mb-5" align="center">
-                <b>{{ this.rimName }}</b>
-            </div>
-        </div>
-     </v-card-item>
+      <div>
+          <div class="text-h9 mb-5" align="center">
+              <b>{{ this.rimName }}</b>
+          </div>
+      </div>
 
      <v-card-subtitle align="center">
         {{ this.velicina }}
@@ -37,12 +34,6 @@
         Odabir
       </v-btn>
     </v-card-actions>
- 
-     <v-expand-transition>
-       <div v-show="show">
-         <v-divider></v-divider>
-       </div>
-     </v-expand-transition>
    </v-card>
  </template>
  
@@ -50,6 +41,8 @@
  import { mapMutations, mapGetters } from "vuex"
 
  export default {
+  name: 'rimsCardComponent',
+
      props: {
          rimName: null,
          velicina: null,

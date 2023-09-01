@@ -29,12 +29,6 @@
       <v-spacer></v-spacer>
 
     </v-card-actions>
-
-    <v-expand-transition>
-      <div v-show="show">
-        <v-divider></v-divider>
-      </div>
-    </v-expand-transition>
   </v-card>
 </template>
 
