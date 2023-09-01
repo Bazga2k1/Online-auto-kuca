@@ -79,6 +79,13 @@
         </v-card-actions>
       </v-col>
       <v-col>
+        <v-select
+          label="Odaberite lokaciju"
+          v-model="selectedItem"
+          :items="['Audi Pula', 'Porsche Rijeka', 'Porsche Zagreb', 'Audi Karlovac', 'Porsche Split', 'Audi Zadar']"
+          ></v-select>
+      </v-col>
+      <v-col>
         <v-card-actions>
           <v-btn
           class="mx-auto"
@@ -103,14 +110,23 @@ import { doc, collection, setDoc, getFirestore } from "firebase/firestore"
 import { getAuth } from "../../firebase"
 
 export default {
+  name: 'TotalView',
+
   methods: {
     formatThousands(res){
         return new Intl.NumberFormat('en-US').format(res);
       },
 
     async buyCar(){
+      const lokacijaIme = this.selectedItem;
+      let userEmail = "No User";
       const auth = getAuth();
       const user = auth.currentUser;
+
+      if(user){
+        userEmail = user.email;
+      }
+
       const db = getFirestore();
       const docData = {
         autoCijena: this.getAutoCijena,
@@ -121,10 +137,11 @@ export default {
         engineIme: this.getEngineName,
         interiorCijena: this.getInteriorCijena,
         interiorIme: this.getInteriorName,
+        lokacija: lokacijaIme,
         rimCijena: this.getRimCijena,
         rimIme: this.getRimName,
         totalCijena: this.getTotalCijena,
-        User: user.email
+        user: userEmail
       };
 
       await setDoc(doc(collection(db, "narudzba")), docData);
