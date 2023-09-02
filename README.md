@@ -10,6 +10,8 @@
 - Netlify
 - Github
 
+<b> Napomena: ovo je konceptualna aplikacija koja prikazuje mogućnosti primjenjive u praksi - ne posjedujem marku Audi kao takvu niti je aplikacija izrađena u svrhu promocije. </b>
+
 ---
 
 # Uvod
@@ -65,49 +67,73 @@ Također, zaigrani „kupci“ su u mogućnosti izrađivati narudžbe koje se ni
 
 
 
-## Razrada funkcionalnosti
+# Razrada funkcionalnosti
 
 Ovaj projekt je napravljen kao web aplikacija u više koraka. Funkcionalnost između prijavljenih i neprijavljenih korisnika je praktički ista, razlikuje se jedino u podacima koji se šalju u bazu podataka i tipki za odjavu iz sistema.
 Glavna stranica prikazuje katalog dostupnih automobila koji je moguće proširivati ili mijenjati po potrebi. Nakon što se vozilo odabere, korisnik korak po korak odabire različite pakete opreme automobila.
 Cijela aplikacija je dizajnirana na način da se od korisnika ne traži nikakav unos podataka van registracije i prijave te se sve opcije biraju gumbom za odabir ili u listi.
 
 
-# Aplikacija
+## Aplikacija
 
+### Početak
 Početna stranica sadrži skup Vue komponenti koje su predložak šablona kartica koje prikazuju inventar. Kartice se razlikuju po podacima koje su unesene u njih.
 Gornja traka sadrži gumb za prijavu (desno) i gumb za povratak na početnu stranicu (logo na lijevoj strani). Nakon prijave, gumb za prijavu je zamijenjen crvenim gumbom za odjavu.
 Ekran za prijavu sadrži standardne funkcionalnosti kao što su registracija novih korisnika i izmjena lozinke. 
+
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/8a3d440b-5257-4054-8c67-78cd8dc055fc)
+
+
+### Naplatci
 Nakon odabira automobila korisnik je prenesen na odabir paketa naplataka. Odabir se sastoji od više različitih veličina: 17'', 18'', 19'' i 20''. Za karticu naplataka izrađena je zasebna Vue komponenta koja se koristi kao šablona. Sastoji se od slike naplataka, njihovog imena, veličine i cijene. Na dnu kartice se nalazi gumb za odabir.
- 
+
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/f5469a82-b6cd-4d74-b2df-ddf7437a2420)
 
 
- 
 
+### Motori
 Odabir motora je odvojen u dvije sekcije: izbor benzinskih i izbor dizelskih pogona. Kao i na prethodnim koracima, šablone kartice su kreirane kao Vue komponente tako da se izbor motora može bezbrižno proširivati po potrebi.
-U karticama sa motorima su ispisani najvažniji podaci: ime, kubikaža (veličina) motora, snaga, zakretni moment i potrošnja goriva. Odabirom motora korisnika se dovodi do stranice za odabir interijera.
- 
+U karticama sa motorima su ispisani najvažniji podaci: ime, kubikaža (veličina) motora, snaga, zakretni moment i potrošnja goriva.
+Odabirom motora korisnika se dovodi do stranice za odabir interijera.
+
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/b29067ea-0449-4c59-887c-268baf59eebf)
+
+
+### Interijeri
 Nakon što smo odabrali glavni pogon vozila, stranica od nas zahtijeva odabir paketa interijera. Kartice za odabir interijera dijele svojstvo šablonske izrade u svrhu proširenja izbora. U kartici je prikazana slika interijera te je isti detaljnije opisan. Na kraju kartice nalazi se cijena i standardni gumb za odabir.
- 
+
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/503a67bd-e265-44cd-9004-448759c89fc6)
+
+
+### Boje
 Posljednji izbornik prije pregleda sveukupne narudžbe jest izbornik sa bojama. Kartice za odabir boja su podijeljene u tri skupine: uni-boje (gloss/sjajne), metalik i metalik boje s efektom. Svaka kartica je, kao i u prijašnjim izbornicima, Vue komponenta koja dozvoljava lako proširenje izbornika.
 Kao glavni podaci o boji ističu se: ime boje, tip boje, njihove cijene i gumb za odabir. Nakon što se dovrši biranje boje, stranica nas vodi na finalnu potvrdu narudžbe.
- 
 
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/5f3e1331-b9a5-446b-b1e5-f7289efced26)
+
+
+### Pregled narudžbe
 U zadnjem koraku ostaje još pregledati sve podatke narudžbe te odabrati željenu poslovnicu u kojoj želimo da se automobil dostavi nakon potvrde i plaćanja narudžbe.
 Ovo je ujedno jedina stranica koja ne koristi predloške Vue komponenti. Podaci o vozilu su prikazani svaki u zasebnom okviru, ovisno o različitim izborima. Za svaki izbor (automobil, naplaci, motor, interijer i boja) prikazana su njihova imena i cijena, dok se na dnu vidi sveukupna cijena automobila.
 Ispod prikazane izračunate cijene nalaze se gumbi za potvrdu (koji je isključen do odabira lokacije) i poništavanje narudžbe i izbornik lokacija dostave.
 Nakon uspješne provedbe narudžbe, korisnik dobiva svoj jedinstveni kôd narudžbe koji je potrebno pribilježiti da bi se nastavilo s kupnjom automobila u poslovnici. Povratkom na početnu stranicu ponuđenim gumbom proces završava.
 
+![image](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/7888af4c-95bf-44f6-aaef-1c547d6551e6)
+
+---
 
 # Implementacija
 
 
 ## UML dijagram
 
- 
+ ![Online auto kuća UML](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/5c22f1e0-6f1f-439d-a2a8-3eb3f1ed8cdc)
+
 Aplikaciji je svrha rezervirati željeni automobil za korisnika da bi ga kasnije mogao kupiti u poslovnici. Također pruža mogućnost personalizacije, odnosno mijenjanje pojedinih dijelova opreme i izgleda automobila korisniku. Zaprimljena narudžba tada dolazi do auto kuće koja nadalje pregovara kupnju s pojedincem te dostavlja gotov proizvod.
 
 
 ## Klasni dijagram
+![UML Class Online auto kuća](https://github.com/Bazga2k1/Online-auto-kuca/assets/95488073/41dcd7f7-dbd4-4ecc-9333-09e91f46d95e)
 
 Ovaj dijagram predstavlja povezanosti različitih atributa tokom korištenja. Za pohranu podataka narudžbe koristi se Firestore uz Firebase za autentifikaciju korisnika.
  
