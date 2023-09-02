@@ -8,7 +8,8 @@
         <v-btn href="/" class="mx-auto" color="grey lighten-2">Povratak na početnu stranicu</v-btn>
     </v-card-actions>
     <img
-    src="https://assets.stickpng.com/images/5ec3e47e58550c000442774c.png"
+    src="https://logos-world.net/wp-content/uploads/2021/03/Audi-Logo.png"
+    width="500"
     class="mx-auto d-flex">
   </v-container>
 </template>
