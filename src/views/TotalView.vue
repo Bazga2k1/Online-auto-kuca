@@ -106,9 +106,8 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex"
-import { doc, collection, setDoc, getFirestore } from "firebase/firestore"
-import { getAuth } from "../../firebase"
+import { mapGetters, mapMutations } from "vuex";
+import axios from "axios";
 
 export default {
   data: () => ({
@@ -124,38 +123,33 @@ export default {
         return new Intl.NumberFormat('en-US').format(res);
       },
 
-
     async buyCar(){
       const lokacijaIme = this.selectedItem;
-      let userEmail = "No User";
-      const auth = getAuth();
-      const user = auth.currentUser;
-
-      if(user){
-        userEmail = user.email;
-      }
 
       this.setLokacija(lokacijaIme);
 
-      const db = getFirestore();
-      const docData = {
-        autoCijena: this.getAutoCijena,
-        autoIme: this.getAutoIme,
-        colorCijena: this.getColorCijena,
-        colorIme: this.getColorName,
-        engineCijena: this.getEngineCijena,
-        engineIme: this.getEngineName,
-        interiorCijena: this.getInteriorCijena,
-        interiorIme: this.getInteriorName,
-        lokacija: lokacijaIme,
-        rimCijena: this.getRimCijena,
-        rimIme: this.getRimName,
-        totalCijena: this.getTotalCijena,
-        user: userEmail
+      const orderData = {
+        selectedCar: this.getAutoIme,
+        selectedCarPrice: this.getAutoCijena,
+        selectedRim: this.getRimName,
+        selectedRimPrice: this.getRimCijena,
+        selectedEngine: this.getEngineName,
+        selectedEnginePrice: this.getEngineCijena,
+        selectedInterior: this.getInteriorName,
+        selectedInteriorPrice: this.getInteriorCijena,
+        selectedColor: this.getColorName,
+        selectedColorPrice: this.getColorCijena,
+        totalOrderPrice: this.getTotalCijena,
+        deliveryLocation: lokacijaIme,
+        user: "No User"
       };
 
-      await setDoc(doc(collection(db, "narudzba")), docData);
-      this.$router.push('/success');
+      try {
+        await axios.post('http://localhost:3000/orders', orderData);
+        this.$router.push('/success');
+      } catch (error) {
+        console.error("Error while placing order:", error);
+      }
     }
   },
 

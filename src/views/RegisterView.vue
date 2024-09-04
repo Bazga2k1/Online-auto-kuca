@@ -70,88 +70,43 @@
 </template>
 
 <script>
-import {
-	doc,
-	auth,
-	db,
-	setDoc,
-	createUserWithEmailAndPassword,
-} from "../../firebase.js";
+import axios from 'axios';
+
 export default {
-	name: "RegisterView",
-	components: {},
-	watch: {
-		valid: function (isValid) {
-			this.isButtonDisabled = isValid != true;
-		},
-	},
+	name: 'RegisterView',
 	data() {
 		return {
-			isButtonDisabled: false,
-			valid: true,
-			companyName: null,
-			ownerFullName: null,
-            userOIB: null,
-			email: null,
-			password: null,
-			showIcon: false,
-			rules: {
-				required: (value) => !!value || "Obavezno",
-				min: (v) => v?.length >= 6 || "Minimalno 6 znakova",
-				email: (v) =>
-					!v ||
-					/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-					"E-mail mora biti postojeći",
-			},
+			companyName: '',
+			ownerFullName: '',
+			userOIB: '',
+			email: '',
+			password: '',
 		};
 	},
-	created() {},
-	mounted() {},
-	destroyed() {},
 	methods: {
-		clearFormData() {
-			this.companyName = null;
-			this.ownerFullName = null;
-			this.email = null;
-			this.password = null;
-		},
-		postActionMoveToView() {
-			this.$router.push({ path: "/" });
-		},
-		async saveAdditionalData(user, email, companyName, ownerFullName, userOIB) {
-			await setDoc(doc(db, "users", email), {
-				Email: email,
-				CompanyName: companyName,
-				OwnerFullName: ownerFullName,
-                OIB: userOIB,
-				AuthorisationType: "USER",
-			});
-		},
-		registerUser() {
-			debugger;
-			const email = this.email;
-			const password = this.password;
-			createUserWithEmailAndPassword(auth, email, password)
-				.then((userCredential) => {
-					debugger;
-					// Signed in
-					const user = userCredential.user;
-					const companyName = this.companyName;
-					const ownerFullName = this.ownerFullName;
-                    const userOIB = this.userOIB;
-					this.saveAdditionalData(user, email, companyName, ownerFullName, userOIB);
-					this.postActionMoveToView();
-				})
-				.catch((error) => {
-					debugger;
-					const errorCode = error.code;
-					const errorMessage = error.message;
-					console.log(error, errorCode, errorMessage);
+		async register() {
+			try {
+				await axios.post('http://localhost:3000/register', {
+					companyName: this.companyName,
+					ownerFullName: this.ownerFullName,
+					userOIB: this.userOIB,
+					email: this.email,
+					password: this.password,
 				});
+				const response = await axios.post('http://localhost:3000/login', { // Automatska prijava nakon registracije
+					email: this.email,
+					password: this.password,
+				});
+				localStorage.setItem('token', response.data.token);
+				this.$router.push("/");
+			} catch (error) {
+				alert("Registracija neuspješna: " + error.response.data.error);
+			}
 		},
 	},
 };
 </script>
+
 
 <style>
 .card-border {

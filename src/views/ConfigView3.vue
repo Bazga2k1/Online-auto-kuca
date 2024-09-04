@@ -1,29 +1,28 @@
 <template>
   <v-container>
-    <h1>Odaberite interijer</h1>
-    <v-divider></v-divider><br>
+    <h1>Odaberite interijer</h1><br>
+    <v-divider></v-divider>
 
-    <interiorCardComponent
-      image-url="http://img.polovniautomobilioglasi.com/gonline_graphics/hrv_19508070_O_64d3f9d214f08.jpg"
-      intName="Standardni interijer"
-      opis='Platnena sjedala, navigacija, Bluetooth povezivanje, dvozonska klimatizacija, 7.5" display, putno računalo,
-      bež platneni strop'
-      cijenaI="0">
-    </interiorCardComponent><br>
+    <div v-if="loading" class="loading">Loading interiors...</div>
+    <div v-if="error" class="error">{{ error }}</div>
 
-    <interiorCardComponent
-      image-url="http://img.polovniautomobilioglasi.com/gonline_graphics/hrv_17459640_O_62d8123586675.jpg"
-      intName="S-Line interijer"
-      opis='Kožna profilirana sjedala, navigacija, Bluetooth povezivanje s glasovnim naredbama, digitalna kontrolna ploča,
-      digitalna dvozonska klimatizacija, stražnja dvozonska klimatizacija, panorama, S-tronic multifunkcijski volan,
-      putno računalo, dijagnostika, GPS praćenje s funkcijom poziva za hitne slučajeve'
-      cijenaI="2000">
-    </interiorCardComponent>
+    <v-row class="pa-6" v-if="interiors.length > 0">
+      <v-col v-for="interior in interiors" :key="interior._id">
+        <interiorCardComponent
+          :interiorName="interior.interiorName"
+          :description="interior.description"
+          :priceI="interior.priceI"
+          :image-url="interior.interiorImageUrl"
+        />
+      </v-col>
+    </v-row>
+    <v-divider v-if="interiors.length === 0">No interiors available.</v-divider>
   </v-container>
 </template>
 
 <script>
-import interiorCardComponent from '@/components/interiorCardComponent.vue';
+import axios from 'axios';
+import interiorCardComponent from "@/components/interiorCardComponent.vue";
 
 export default {
   name: 'ConfigView3',
@@ -31,5 +30,45 @@ export default {
   components: {
     interiorCardComponent
   },
-}
+
+  data() {
+    return {
+      interiors: [],
+      loading: true,
+      error: null,
+    };
+  },
+
+  methods: {
+    async fetchInteriors() {
+      try {
+        const response = await axios.get('http://localhost:3000/interiors');
+        this.interiors = response.data;
+        console.log(this.interiors); // Debugging: Check the fetched data
+      } catch (error) {
+        this.error = 'Failed to load interiors. Please try again later.';
+        console.error('Error fetching interiors:', error);
+      } finally {
+        this.loading = false;
+      }
+    }
+  },
+
+  created() {
+    this.fetchInteriors();
+  }
+};
 </script>
+
+<style scoped>
+.loading, .error {
+  color: red;
+  font-size: 18px;
+}
+
+v-row {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+</style>

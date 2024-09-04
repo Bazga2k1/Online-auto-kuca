@@ -13,7 +13,7 @@
 								v-model="email"
 								dense
 								label="E-mail firme"
-								clearble
+								clearable
 								type="email"
 								:rules="[rules.required, rules.email]"
 								outlined></v-text-field>
@@ -21,10 +21,8 @@
 								v-model="password"
 								dense
 								label="Zaporka"
-								clearble
-								:append-icon="
-									showIcon ? 'mdi-eye' : 'mdi-eye-off'
-								"
+								clearable
+								:append-icon="showIcon ? 'mdi-eye' : 'mdi-eye-off'"
 								:rules="[rules.required, rules.min]"
 								:type="showIcon ? 'text' : 'password'"
 								outlined></v-text-field>
@@ -69,7 +67,7 @@
 								v-model="emailForPassword"
 								dense
 								label="E-mail firme"
-								clearble
+								clearable
 								type="text"
 								:rules="[rules.required, rules.email]"
 								outlined></v-text-field>
@@ -97,24 +95,12 @@
 		</v-row>
 	</v-container>
 </template>
+
 <script>
-import {
-	auth,
-	sendPasswordResetEmail,
-	signInWithEmailAndPassword,
-} from "../../firebase.js";
+import axios from 'axios';
+
 export default {
 	name: 'LoginView',
-	components: {},
-	watch: {
-		valid: function (newVal) {
-			if (newVal != true) {
-				this.isButtonDisabled = true;
-			} else {
-				this.isButtonDisabled = false;
-			}
-		},
-	},
 	data() {
 		return {
 			emailForPassword: null,
@@ -135,43 +121,21 @@ export default {
 		};
 	},
 	methods: {
-		login() {
-			let email = this.email;
-			let password = this.password;
-			signInWithEmailAndPassword(auth, email, password)
-				.then(() => {
-					this.$router.push("/");
-				})
-				.catch((error) => {
-					alert(error.message);
+		async login() {
+			try {
+				const response = await axios.post('http://localhost:3000/login', {
+					email: this.email,
+					password: this.password,
 				});
-		},
-		resetPassword(email) {
-			sendPasswordResetEmail(auth, email)
-				.then(() => {
-					console.log("E-mail poslan");
-				})
-				.catch((error) => {
-					alert(error.message);
-				});
-			this.closeDialog();
-		},
-		postActionMoveToView() {
-			this.$router.push({ path: "/" });
-		},
-		closeDialog() {
-			this.passwordIssuesDialog = false;
-		},
-		openDialog() {
-			this.passwordIssuesDialog = true;
+
+				const token = response.data.token;
+				localStorage.setItem('token', token);
+
+				this.$router.push("/");
+			} catch (error) {
+				alert("Prijava neuspješna: " + error.response.data.error);
+			}
 		},
 	},
-	created() {},
-	mounted() {},
-	destroyed() {},
 };
 </script>
-
-<style>
-
-</style>
