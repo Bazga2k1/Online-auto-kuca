@@ -5,7 +5,6 @@
       color="dark-grey"
       dark
     >
-
       <div class="d-flex align-center">
         <v-btn href="/" class="mr-2">
           <v-img
@@ -26,15 +25,15 @@
           width="200"
         />
       </div>
-    
-    <v-col align="right">
-      <v-btn text class="pa-3" color="grey lighten-6" to="/prijava" v-if="!userExists">
-        Prijava za kupnju kroz R1 račun
-      </v-btn>
-      <v-btn text class="pa-3" color="red lighten-8" v-else @click="Logout()" href="/">
-        Odjava
-      </v-btn>
-    </v-col>
+
+      <v-col align="right">
+        <v-btn text class="pa-3" color="grey lighten-6" to="/prijava" v-if="!userExists">
+          Prijava za kupnju kroz R1 račun
+        </v-btn>
+        <v-btn text class="pa-3" color="red lighten-8" v-else @click="Logout" href="/">
+          Odjava
+        </v-btn>
+      </v-col>
 
     </v-app-bar>
 
@@ -45,7 +44,7 @@
 </template>
 
 <script>
-import { getAuth, onAuthStateChanged } from "../firebase";
+import axios from 'axios';
 
 export default {
   name: 'App',
@@ -54,35 +53,31 @@ export default {
     userExists: false
   }),
 
-  methods:{
-    IfUserExists(){
-      const auth = getAuth();
-
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
-          this.userExists = true
-        } else {
-          this.useExists = false
-        }
-      });
-
+  methods: {
+    async IfUserExists() {
+      try {
+        const response = await axios.get('http://localhost:3000/login/auth-status');
+        this.userExists = response.data.isAuthenticated;
+      } catch (error) {
+        console.error("Error checking user authentication status:", error);
+        this.userExists = false;
+      }
     },
 
-    Logout(){
+    async Logout() {
       try {
+        await axios.post('http://localhost:3000/logout');
         console.log("Odjavljeno");
-        getAuth().signOut();
+        this.userExists = false;
+        this.$router.push('/');
       } catch (error) {
-        console.log("Greška", error);
+        console.log("Greška prilikom odjave:", error);
       }
-
-      this.IfUserExists()
-
     }
   },
 
-  mounted(){
-    this.IfUserExists()
+  mounted() {
+    this.IfUserExists();
   }
 };
 </script>

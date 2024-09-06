@@ -1,129 +1,109 @@
 <template>
-	<v-container fill-height fluid class="background">
-		<v-row align="center" justify="center">
-			<v-col align="center" justify="center" cols="12">
-				<v-card class="card-border" width="600px" outlined>
-					<v-card-title align="left">Registracija firme</v-card-title>
-					<v-card-text>
-						<v-form v-model="valid">
-							<v-text-field
-								v-model="companyName"
-								dense
-								label="Ime firme"
-								clearble
-								type="text"
-								outlined></v-text-field>
-							<v-text-field
-								v-model="ownerFullName"
-								dense
-								label="Ime i prezime vlasnika"
-								clearble
-								type="text"
-								outlined></v-text-field>
-                                <v-text-field
-								v-model="userOIB"
-								dense
-								label="OIB"
-								clearble
-								type="integer"
-								outlined></v-text-field>
-							<v-text-field
-								v-model="email"
-								dense
-								label="E-mail firme"
-								clearble
-								type="email"
-								:rules="[rules.required, rules.email]"
-								outlined></v-text-field>
-							<v-text-field
-								v-model="password"
-								dense
-								label="Zaporka"
-								clearble
-								:append-icon="
-									showIcon ? 'mdi-eye' : 'mdi-eye-off'
-								"
-								:rules="[rules.required, rules.min]"
-								:type="showIcon ? 'text' : 'password'"
-								outlined></v-text-field>
-						</v-form>
-					</v-card-text>
-					<v-card-actions class="card-actions">
-						<v-btn
-							class="btn-right-margin"
-							@click="clearFormData"
-							color="red darken-3"
-							outlined>
-							CLEAR
-						</v-btn>
-						<v-btn
-							:disabled="isButtonDisabled"
-							outlined
-							@click="registerUser">
-							OK
-						</v-btn>
-					</v-card-actions>
-				</v-card>
-			</v-col>
-		</v-row>
-	</v-container>
+  <v-container class="pa-5 my-2">
+    <v-card class="pa-8 max-width=400 outlined">
+      <v-card-title class="font-weight-bold text-h5">Registracija</v-card-title>
+      <v-divider class="pa-2"></v-divider>
+
+      <v-form v-model="valid" ref="form" @submit.prevent="registerUser">
+        <v-text-field
+          v-model="companyName"
+          :rules="[rules.required]"
+          label="Ime firme"
+          outlined
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="ownerFullName"
+          :rules="[rules.required]"
+          label="Ime i prezime vlasnika"
+          outlined
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="userOIB"
+          :rules="[rules.required, rules.oibValidation]"
+          label="OIB"
+          outlined
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="email"
+          :rules="[rules.required, rules.email]"
+          label="E-pošta"
+          outlined
+          required
+        ></v-text-field>
+
+        <v-text-field
+          v-model="password"
+          :rules="[rules.required, rules.min]"
+          label="Lozinka"
+          type="password"
+          outlined
+          required
+        ></v-text-field>
+
+        <v-btn :disabled="!valid" @click="registerUser" color="primary">Register</v-btn>
+      </v-form>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
 import axios from 'axios';
 
 export default {
-	name: 'RegisterView',
-	data() {
-		return {
-			companyName: '',
-			ownerFullName: '',
-			userOIB: '',
-			email: '',
-			password: '',
-		};
-	},
-	methods: {
-		async register() {
-			try {
-				await axios.post('http://localhost:3000/register', {
-					companyName: this.companyName,
-					ownerFullName: this.ownerFullName,
-					userOIB: this.userOIB,
-					email: this.email,
-					password: this.password,
-				});
-				const response = await axios.post('http://localhost:3000/login', { // Automatska prijava nakon registracije
-					email: this.email,
-					password: this.password,
-				});
-				localStorage.setItem('token', response.data.token);
-				this.$router.push("/");
-			} catch (error) {
-				alert("Registracija neuspješna: " + error.response.data.error);
-			}
-		},
-	},
+  data() {
+    return {
+      valid: false,
+      companyName: '',
+      ownerFullName: '',
+      userOIB: '',
+      email: '',
+      password: '',
+      rules: {
+        required: value => !!value || 'Obavezno polje',
+        email: value => {
+          const pattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+          return pattern.test(value) || 'E-mail nevažeći';
+        },
+        min: value => value.length >= 6 || 'Lozinka mora biti duga minimalno 6 znakova.',
+        oibValidation: value => {
+          const oibPattern = /^[0-9]{11}$/;
+          return oibPattern.test(value) || 'Nevažeći OIB (mora imati 11 znamenki)';
+        }
+      }
+    };
+  },
+  methods: {
+    async registerUser() {
+      if (this.$refs.form.validate()) {
+        const userData = {
+          companyName: this.companyName,
+          ownerFullName: this.ownerFullName,
+          userOIB: this.userOIB,
+          email: this.email,
+          password: this.password,
+        };
+
+        try {
+			await axios.post('http://localhost:3000/register', userData);
+			console.log('User registered:', response.data);
+			const response = await axios.post('http://localhost:3000/login', { email: this.email, password: this.password, });
+			localStorage.setItem('token', response.data.token);
+			alert('User registered successfully');
+			this.$router.push("/");
+		} catch (error) {
+			console.error('Error registering user:', error);
+			alert('Registration failed. Please try again.');
+		}
+      } else {
+        console.log('Form is invalid, cannot register.');
+      }
+    }
+  }
 };
 </script>
-
-
-<style>
-.card-border {
-	padding: 2%;
-}
-
-.card-text-border {
-	padding: 2.5%;
-}
-
-.card-actions {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-}
-
-.btn-right-margin {
-	margin-right: 2%;
-}
-</style>
