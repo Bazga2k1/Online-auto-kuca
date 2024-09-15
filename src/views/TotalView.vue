@@ -141,7 +141,7 @@ export default {
         selectedColorPrice: this.getColorCijena,
         totalOrderPrice: this.getTotalCijena,
         deliveryLocation: lokacijaIme,
-        user: "No User"
+        user: this.$store.getters.getUserEmail || null,
       };
 
       try {
@@ -165,8 +165,8 @@ export default {
       getInteriorCijena: 'getInteriorCijena',
       getColorName: 'getColorName',
       getColorCijena: 'getColorCijena',
-      getTotalCijena: 'getTotalCijena'
-    })
+      getTotalCijena: 'getTotalCijena',
+    }),
   },
 }
 </script>

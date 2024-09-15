@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import auth from './auth'
 
 Vue.use(Vuex)
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
     lokacija: null,
     colorIme: null,
     colorCijena: null,
-    totalCijena: 0
+    totalCijena: 0,
+    user: null
   },
 
   getters: {
@@ -66,7 +68,14 @@ export default new Vuex.Store({
 
     getTotalCijena(state){
       return state.totalCijena;
-    }
+    },
+
+    getUser(state){
+      return state.user;
+    },
+
+    getUserEmail: (state) => (state.user ? state.user.email : null)
+
   },
 
   mutations: {
@@ -117,13 +126,23 @@ export default new Vuex.Store({
 
     setColorCijena(state, payload){
       state.colorCijena = payload;
+    },
+
+    setUser(state, user) {
+      state.user = user;
+    },
+
+    clearUser(state) {
+      state.user = null;
     }
+
   },
 
   actions: {
   },
 
   modules: {
+    auth
   }
 
 })

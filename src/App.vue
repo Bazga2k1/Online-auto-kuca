@@ -1,10 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="dark-grey"
-      dark
-    >
+    <v-app-bar app color="dark-grey" dark>
       <div class="d-flex align-center">
         <v-btn href="/" class="mr-2">
           <v-img
@@ -25,59 +21,51 @@
           width="200"
         />
       </div>
-
+    
       <v-col align="right">
-        <v-btn text class="pa-3" color="grey lighten-6" to="/prijava" v-if="!userExists">
+        <v-btn
+          text
+          class="pa-3"
+          color="grey lighten-6"
+          to="/prijava"
+          v-if="!isAuthenticated"
+        >
           Prijava za kupnju kroz R1 račun
         </v-btn>
-        <v-btn text class="pa-3" color="red lighten-8" v-else @click="Logout" href="/">
+        <v-btn
+          text
+          class="pa-3"
+          color="red lighten-8"
+          v-else
+          @click="logout"
+        >
           Odjava
         </v-btn>
       </v-col>
-
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import axios from 'axios';
+import { mapGetters, mapActions } from 'vuex';
 
 export default {
   name: 'App',
 
-  data: () => ({
-    userExists: false
-  }),
+  computed: {
+    ...mapGetters('auth', ['isAuthenticated']),
+  },
 
   methods: {
-    async IfUserExists() {
-      try {
-        const response = await axios.get('http://localhost:3000/login/auth-status');
-        this.userExists = response.data.isAuthenticated;
-      } catch (error) {
-        console.error("Error checking user authentication status:", error);
-        this.userExists = false;
-      }
-    },
-
-    async Logout() {
-      try {
-        await axios.post('http://localhost:3000/logout');
-        console.log("Odjavljeno");
-        this.userExists = false;
-        this.$router.push('/');
-      } catch (error) {
-        console.log("Greška prilikom odjave:", error);
-      }
-    }
+    ...mapActions('auth', ['logout', 'checkAuthStatus']),
   },
 
   mounted() {
-    this.IfUserExists();
-  }
+    this.checkAuthStatus();
+  },
 };
 </script>
