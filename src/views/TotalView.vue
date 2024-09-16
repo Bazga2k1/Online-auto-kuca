@@ -145,7 +145,7 @@ export default {
       };
 
       try {
-        await axios.post('http://localhost:3000/orders', orderData);
+        await axios.post('https://online-auto-kuca-backend.onrender.com/orders', orderData);
         this.$router.push('/success');
       } catch (error) {
         console.error("Error while placing order:", error);

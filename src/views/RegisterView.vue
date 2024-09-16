@@ -46,7 +46,7 @@
           required
         ></v-text-field>
 
-        <v-btn :disabled="!valid" @click="registerUser" color="primary">Register</v-btn>
+        <v-btn :disabled="!valid" @click="registerUser" color="primary">Registrirajte se</v-btn>
       </v-form>
     </v-card>
   </v-container>
@@ -90,9 +90,9 @@ export default {
         };
 
         try {
-			await axios.post('http://localhost:3000/register', userData);
+			await axios.post('https://online-auto-kuca-backend.onrender.com/register', userData);
 			console.log('User registered:', response.data);
-			const response = await axios.post('http://localhost:3000/login', { email: this.email, password: this.password, });
+			const response = await axios.post('https://online-auto-kuca-backend.onrender.com/login', { email: this.email, password: this.password, });
 			localStorage.setItem('token', response.data.token);
 			alert('User registered successfully');
 			this.$router.push("/");

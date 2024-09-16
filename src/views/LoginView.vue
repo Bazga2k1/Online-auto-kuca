@@ -7,6 +7,7 @@
 				<v-text-field v-model="email" label="E-pošta" />
 				<v-text-field v-model="password" label="Zaporka" type="password" />
 				<v-btn type="submit">Prijava</v-btn>
+        <v-btn href="/registracija_firme" class="align-right">Registracija</v-btn>
 				</v-form>
 			</v-card-text>
 		</v-card>
